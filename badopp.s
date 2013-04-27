@@ -1,55 +1,8 @@
 ## This file is provided for your enjoyment.  Load both it and your debugged problem1.s
 ## into QtSpimbot and watch it go!
-.data
-
-tea: .word -1
-te1: .word -1
-
-
-
 
 .text
 
-print_int_and_space:
-                                # the int to print is already in $a0
-        li   $v0, 1             # load the syscall option for printing ints
-        syscall                 # print the integer
-        
-        li   $a0, ' '           # print a black space
-        li   $v0, 11            # load the syscall option for printing chars
-        syscall                 # print the char
-        
-        jr      $ra             # return to the calling procedure
-
-print_point:
-		move $t0, $a0
-		move $t1, $a1
-		
-		li   $a0, '('           # print a black space
-        li   $v0, 11            # load the syscall option for printing chars
-        syscall                 # print the char
-        
-        move $a0, $t0              # the int to print is already in $a0
-        li   $v0, 1             # load the syscall option for printing ints
-        syscall                 # print the integer
-        
-        li   $a0, ','           # print a black space
-        li   $v0, 11            # load the syscall option for printing chars
-        syscall                 # print the char
-        
-        move $a0, $t1              # the int to print is already in $a0
-        li   $v0, 1             # load the syscall option for printing ints
-        syscall                 # print the integer
-        
-        li   $a0, ')'           # print a black space
-        li   $v0, 11            # load the syscall option for printing chars
-        syscall                 # print the char
-        
-        li   $a0, ' '           # print a black space
-        li   $v0, 11            # load the syscall option for printing chars
-        syscall                 # print the char
-        
-        jr      $ra             # return to the calling procedure
 # spimbot constants
 ANGLE = 0xffff0014
 ANGLE_CONTROL = 0xffff0018
@@ -82,7 +35,7 @@ main:
 	sw	$ra, 0($sp)
 	sw	$s0, 0($sp)
 	sw	$s1, 0($sp)
-	sudoku solver
+	
 	li 	$s0, 1  # absolute angle
 	li	$s1, 0  # prev_angle
 
@@ -94,7 +47,7 @@ iterate_apples:
 	lw 	$a3, PUBLIC_APPLE_Y
 	
 	jal	movement
-	
+
 
 	sub	$t0, $s1, $v0	     # prev_angle - angle
 	abs	$t0, $t0	     # if the abs of angle diffs is 180
@@ -112,18 +65,6 @@ set_direction:
 	sw 	$s0, ANGLE_CONTROL
 	move	$s1, $v0	     # remember previous direction
 	
-test_point:
-	lw $a0, OTHER_BOT_HEAD_X
-	lw $a1, OTHER_BOT_HEAD_Y
-	lw $t0, tea
-	lw $t1, te1
-	beq $t0, $a0, done
-	beq $t1, $a1, done
-	sw $a0, tea
-	sw $a1, te1
-	jal  print_point
-
-done:
 	j	iterate_apples
 
 
