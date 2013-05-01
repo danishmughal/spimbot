@@ -1,6 +1,6 @@
 1. What optimizations did you implement?
 
-
+One of the major implementations: our program normally looks for the next solution over and over, but we interrupt our program only to move. This way our SPIMbot performs optimally and better that it would have had we decided not to implement this optimization.
 
 
 
@@ -8,18 +8,16 @@
 contributions were (e.g., strategy, implementation of which
 components, testing/debugging, etc.)
 
-<person1>: <what they did>
+William Koehler: He was involved in a lot of the core functionality of the SPIMbot, and was responsible for implementing most of the functions. 
 
-<person2>: <what they did>
-
-...
-
+Danish Mughal: He played an important role in the logical design of the SPIMbot. Initially, he created a list of tasks that the 
 
 
 3. Please describe how your team decided to split up the tasks.
 
-
-
+We initially met up and took a hard look at the assignment, and brainstormed up some ideas of how we could possibly implement a solution to it. Initially it was difficult to understand exactly how to approach the problem and how we could possibly split the tasks that would be needed. We brainstormed some functions initially and then decided on a list of tasks that would need to me completed in order to have a functioning SPIMbot. We then split these tasks among us, with each of us deciding what we would individually create. 
 
 
 4. Describe a teamwork challenge that your team had and how you resolved it.
+
+A major teamwork challenge that the team faced was the fact that working remote was harder than we imagined. We were able to easily resolve this problem through the use of git and github, which allowed us to easily and fluidly each work on our individual parts remotely from our own computers. Of course, in addition to working remotely using github, we also met up and worked together physically as well. By using this mixture of remote and on-site work, we were able to quickly implement the SPIMbot and get it done.
